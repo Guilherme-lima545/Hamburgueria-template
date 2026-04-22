@@ -8,6 +8,8 @@ import ContainerBebidas from './bebidas';
 import Footer from './Footer';
 import ContainerBatata from './batatas';
 
+
+
 export default function Homepage() {
   return (
     <>

@@ -2,6 +2,7 @@
 import styles from '@/app/styles/hamburguer.module.css';
 import Image from 'next/image';
 import { GET_BURGER } from '../api/route';
+import { useCarrinho } from '../context/CarrinhoContext';
 import { useEffect, useState } from 'react';
 import hamburguerdefault from '@/public/Hamburguer default.png';
 
@@ -14,12 +15,12 @@ type Burger = {
   disponivel?: boolean;
 };
 
-
-const page = 3
+const page = 3;
 
 export default function ContainerBurguer() {
   const [hamburgueres, setHamburgueres] = useState<Burger[] | null>(null);
   const [vermais, setvermais] = useState(page);
+  const { adicionaraocarrinho } = useCarrinho();
 
   useEffect(() => {
     async function fetchData() {
@@ -34,8 +35,8 @@ export default function ContainerBurguer() {
   );
 
   const handlevermais = () => {
-    setvermais((prev) => prev + page)
-  }
+    setvermais((prev) => prev + page);
+  };
 
   return (
     <section className={styles.containerburguer}>
@@ -57,12 +58,19 @@ export default function ContainerBurguer() {
             <p>R$ {hamburguer.preco}</p>
             <div className={styles.botoes}>
               <button className={styles.comprar}>Comprar</button>
-              <button className={styles.adicionar}> Carrinho </button>
+              <button
+                className={styles.adicionar}
+                onClick={() => adicionaraocarrinho(hamburguer)}
+              >
+                Carrinho
+              </button>
             </div>
           </ul>
         ))}
       </div>
-      <span className={styles.vermais} onClick={handlevermais}> ⬇ Ver mais ⬇ </span>
+      <span className={styles.vermais} onClick={handlevermais}>
+        ⬇ Ver mais ⬇
+      </span>
     </section>
   );
 }

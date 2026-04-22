@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { GET_BURGER } from '../api/route';
 import { useEffect, useState } from 'react';
 import Cocacoladefault from '@/public/Coca Cola.png';
+import { useCarrinho } from '../context/CarrinhoContext';
 
 type Bebidas = {
   id: number;
@@ -19,6 +20,7 @@ const page =  3
 export default function ContainerBebidas() {
   const [bebidas, setBebidas] = useState<Bebidas[] | null>(null);
   const [vermais, setvermais] = useState(page);
+  const {adicionaraocarrinho} = useCarrinho();
   
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export default function ContainerBebidas() {
             <p>R$ {bebida.preco}</p>
             <div className={styles.botoes}>
               <button className={styles.comprar}>Comprar</button>
-              <button className={styles.adicionar}> Carrinho </button>
+              <button className={styles.adicionar} onClick={() => adicionaraocarrinho(bebida)}> Carrinho </button>
             </div>
           </ul>
         ))}

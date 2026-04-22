@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import  CarrinhoProvider  from "@/app/context/CarrinhoContext";
 import { Geist, Geist_Mono, Jersey_25, Jua, Kavoon } from "next/font/google";
 import "./globals.css";
 
@@ -33,7 +34,7 @@ export default function RootLayout({
       lang="en"
       className={`${Juafont.variable} ${Jersey25.variable} ${Kavoonfont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col"><CarrinhoProvider>{children}</CarrinhoProvider></body>
     </html>
   );
 }

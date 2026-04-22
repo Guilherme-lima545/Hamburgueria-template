@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { GET_BURGER } from '../api/route';
 import { useEffect, useState } from 'react';
 import BatataDefault from '@/public/BatataDefault.png';
+import { useCarrinho } from '../context/CarrinhoContext';
 
 type Batatas = {
   id: number;
@@ -16,6 +17,7 @@ type Batatas = {
 
 export default function ContainerBatata() {
   const [batatas, setBatatas] = useState<Batatas[] | null>(null);
+  const {adicionaraocarrinho} = useCarrinho();
 
   useEffect(() => {
     async function fetchData() {
@@ -49,7 +51,7 @@ export default function ContainerBatata() {
             <p>R$ {batata.preco}</p>
             <div className={styles.botoes}>
               <button className={styles.comprar}>Comprar</button>
-              <button className={styles.adicionar}> Carrinho </button>
+              <button className={styles.adicionar} onClick={() => adicionaraocarrinho(batata)}> Carrinho </button>
             </div>
           </ul>
         ))}
