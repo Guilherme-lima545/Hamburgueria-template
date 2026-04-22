@@ -1,5 +1,7 @@
 'use server'
 
+import { NextResponse } from "next/server";
+
 type Burger = {
   id: number;
   nome: string;
@@ -19,4 +21,17 @@ export async function GET_BURGER() {
   const data = await response.json() as Burger[];
 
   return data
+}
+
+
+export async function GET() {
+  const response = await fetch('https://api-hamburgueria-production.up.railway.app/api/produtos', {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
+  const data = await response.json() as Burger[];
+
+  return NextResponse.json({data})
 }
