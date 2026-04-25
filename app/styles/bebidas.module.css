@@ -95,3 +95,10 @@ padding-bottom: 5%;
   background-color: black;
   margin-top: 1%;
 }
+
+
+@media (max-width: 1200px) {
+  .bebida {
+    grid-template-columns: 2fr;
+  }
+}

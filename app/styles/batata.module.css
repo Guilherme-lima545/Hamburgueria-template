@@ -94,3 +94,10 @@
   background-color: black;
   margin-top: 1%;
 }
+
+
+@media (max-width: 1200px) {
+  .batata {
+    grid-template-columns: 2fr;
+  }
+}

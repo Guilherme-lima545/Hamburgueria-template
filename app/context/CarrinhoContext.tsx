@@ -53,7 +53,7 @@ export default function CarrinhoProvider({
   }
 
   function removerdocarrinho(id: number) {
-    setItens((prevItens) => prevItens.filter((item) => item.id !== id));
+    setItens((prevItens) => prevItens.map((item) => item.id === id ? { ...item, quantidade: item.quantidade - 1 } : item).filter(item => item.quantidade > 0));
   }
 
   function atualizarQuantidade(id: number, quantidade: number) {

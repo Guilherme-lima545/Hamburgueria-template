@@ -19,7 +19,7 @@ export default function Homepage() {
           <Image
             src={containerimage}
             alt="Imagem do container"
-            width={1350}
+            width={2610}
             height={346}
           />
         </div>

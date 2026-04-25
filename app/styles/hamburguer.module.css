@@ -90,3 +90,9 @@
   background-color: black;
   margin-top: 1%;
 }
+
+@media (max-width: 1200px) {
+  .hamburguer {
+    grid-template-columns: 2fr;
+  }
+}

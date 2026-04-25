@@ -1,4 +1,12 @@
 
+.homecontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .homecontainer image {
   width: 100%;
 }
@@ -10,6 +18,10 @@
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  top: 40%;
-  left: 30%;
+}
+
+@media (max-width: 633px) {
+  .homecontainer h1 {
+    font-size: 30px;
+  }
 }
