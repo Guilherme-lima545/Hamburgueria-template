@@ -102,3 +102,16 @@ padding-bottom: 5%;
     grid-template-columns: 2fr;
   }
 }
+
+@media (max-width: 425px) {
+.textobebida::before,
+.textobebida::after {
+  margin-top: 7.5%;
+}
+}
+
+@media (max-width: 362px) {
+.botoes {
+  width: 100%;
+}
+}

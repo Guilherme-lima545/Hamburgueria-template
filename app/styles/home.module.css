@@ -25,3 +25,11 @@
     font-size: 30px;
   }
 }
+
+
+@media (max-width: 379px) {
+  .homecontainer h1 {
+    font-size: 20px;
+  }
+}
+
